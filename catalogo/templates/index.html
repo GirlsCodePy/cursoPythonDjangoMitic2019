@@ -1,9 +1,9 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Inicio Bodega Terraza Del Chupi</h1>
+<h1>Bodega Terraza</h1>
 
-<p>Bienvenido a <em>Terraza Del Chupi</em>, un sitio web básico de Django desarrollado como tutorial de ejemplo para MITIC.</p>
+<p>Bienvenido a <em>Terraza</em>, un sitio web básico de Django desarrollado como tutorial de ejemplo para MITIC.</p>
 
 <h2>Contenido Dinámico</h2>
 
@@ -13,5 +13,19 @@
     <li><strong>Pedidos:</strong> {{ num_pedidos }}</li>
     <li><strong>Bebidas Disponibles:</strong> {{ num_bebidas_disponibles }}</li>
   </ul>
-
+    <table class="table">
+      <th>Nombre</th>
+      <th>Cantidad</th>
+      {% for bebida in bebidas %}
+      <tr>
+        <td>
+          {{ bebida.nombre }}
+        </td>
+        <td>
+          {{ bebida.stock }}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  
 {% endblock %}

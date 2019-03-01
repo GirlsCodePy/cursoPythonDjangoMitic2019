@@ -13,10 +13,15 @@ def index(request):
     num_bebidas_disponibles = Bebida.objects.all().aggregate(Sum('stock'))
     #num_bebidas_disponibles = Bebida.objects.filter(stock__gt=0).count()
 
+    bebidas = Bebida.objects.all()
    
  # Renderiza la plantilla HTML index.html con los datos en la variable contexto
     return render(
         request,
         'index.html',
-        context={'num_bebidas':num_bebidas, 'num_pedidos':num_pedidos, 'num_bebidas_disponibles':num_bebidas_disponibles},
+        context={'num_bebidas':num_bebidas, 'num_pedidos':num_pedidos, 'num_bebidas_disponibles':num_bebidas_disponibles, 'bebidas': bebidas},
     )
+
+def comprar(request):
+    device_value = request.POST.get('nombre')
+    print (device_value)

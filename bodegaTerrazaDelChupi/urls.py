@@ -32,7 +32,7 @@ urlpatterns += [
 
 #2 Add URL maps to redirect the base URL to our application from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='/catalogo/', permanent=True)),
+    path('/', RedirectView.as_view(url='/catalogo/', permanent=True)),
 ]
  
 #3 Use static() to add url mapping to serve static files during development (only)

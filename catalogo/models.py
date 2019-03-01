@@ -55,7 +55,7 @@ class Bebida(models.Model):
 
     stock = models.IntegerField(default=0)
 
-
+    
     def __str__(self):
 
         """
